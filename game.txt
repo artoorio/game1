@@ -1,0 +1,74 @@
+class player:
+    def __init__(self, ):
+        self.nums = {}
+        self.answer = 0
+        self.history = []
+        self.win = None
+    def step(self,a):
+        if a*2 not in self.nums:
+            self.nums[a*2] = 0
+            
+        if a+1 not in self.nums:
+            self.nums[a+1] = 0
+        if self.nums[a+1]>= self.nums[a*2]:
+            self.history.append(a+1)
+            self.answer = a+1
+            return a+1
+        else:
+            self.history.append(a*2)
+            self.answer = a*2
+            return a*2
+p1 = player()
+p2 = player()
+
+
+
+def Game(start):
+    h = start
+    while p1.answer<65 and p2.answer<65:
+        #print(h)
+        b = p1.step(h)
+        #print('p1  ответил',b)
+        if b<65:
+            h = p2.step(b)
+        #print('p2  ответил',h)
+    if p1.answer>64:
+        p1.win = True
+        p2.win = False
+        print('победа 1го игрока')
+    else:
+        p2.win = True
+        p1.win = False
+        print('победа 2го игрока')
+    p1.answer = 0
+    p2.answer = 0
+    
+    
+one, two = 0, 0
+for start in range(1,2):
+    for k in range(200):
+        Game(start)
+    
+    
+        if p1.win == True:
+            one+=1
+            for i in p1.history:
+                p1.nums[i]+=1
+            for i in p2.history:
+                #print('вычитаем', i)
+                #print(p2.nums[i])
+                p2.nums[i]-=1
+                #print(p2.nums[i])
+        if p2.win == True:
+            two+=1
+            for i in p2.history:
+                #print('прибавляем', i)
+                p2.nums[i]+=1
+            for i in p1.history:
+                p1.nums[i]-=1
+        #print(p1.nums, p2.nums)
+        print(p1.history)
+        print(p2.history)
+        #print(one,':',two)
+        p1.history = []
+        p2.history = []
