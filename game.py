@@ -10,9 +10,11 @@ class Player:
         '''описание логики выбора хода''' 
         
         return num_in+1
+    
     def collecting_points(self):
         'получение очков за игру'
         return
+    
     
 class Game:
     
