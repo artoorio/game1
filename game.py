@@ -1,7 +1,7 @@
 class Player:
     def __init__(self, ):
         self.nums = {}
-        self.answer = 0
+        self.answer = None
         self.history = []
         self.win = None
         
@@ -17,14 +17,12 @@ class Player:
     
     
 class Game:
-    
-    def __init__(self, start: 'BeginingNumber', finish : 'NumberForWin', players: 'List[Player]'): 
-
-        self.start = start
-        self.finish = finish
-        self.players = players
-        self.step_result = None
-        self.last_step = start
+    def __init__(self, start: int, finish : int, players'): 
+        self.start = start # Starting number
+        self.finish = finish # Winning number
+        self.players = players # List[player]
+        self.step_result = None # Step result
+        self.last_step = start # Last step
     
     def play(self):
         
