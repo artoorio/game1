@@ -18,7 +18,6 @@ class Player:
     
 class Game:
     def __init__(self, start: int, finish : int, players : list): 
-        self.start = start # Starting number
         self.STONES_FOR_WIN = finish 
         self.players = players # List[player]
         self.stones_on_table = start # Last step
