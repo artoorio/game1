@@ -21,7 +21,6 @@ class Game:
         self.start = start # Starting number
         self.STONES_FOR_WIN = finish 
         self.players = players # List[player]
-        self.step_result = None # Step result
         self.stones_on_table = start # Last step
     
     def play(self):
