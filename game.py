@@ -1,13 +1,13 @@
 class Player:
-    def __init__(self, ):
+    def __init__(self):
         self.nums = {}
         self.answer = None
         self.history = []
         self.win = None
         
-    def make_step(self,stones_on_table : 'Last step number', stones_for_win : 'Number for win'):
+    def make_step(self, stones_on_table : int, stones_for_win : int):
         
-        '''описание логики выбора хода''' 
+        """описание логики выбора хода""" 
         
         return stones_on_table+1
     
@@ -24,12 +24,14 @@ class Game:
     
     def play(self):
         
-        '''сначала играем, а потом раздаем очки'''
+        """сначала играем, а потом раздаем очки"""
         
-        while self.stones_on_table < self.STONES_FOR_WIN:
+        win = False
+        while not win:
             for player in self.players:
                 self.stones_on_table = player.make_step(self.stones_on_table,self.STONES_FOR_WIN) 
                 if self.stones_on_table >= self.STONES_FOR_WIN: #если кто то победил, то заканчиваем цикл
+                    win = True
                     break
                 
                 
