@@ -12,7 +12,9 @@ class Player:
         return stones_on_table+1
     
     def collecting_points(self):
-        'получение очков за игру'
+        
+        """получение очков за игру"""
+        
         return
     
     
