@@ -3,7 +3,7 @@ class Player:
         self.nums = {}
         self.answer = None
         self.history = []
-        self.win = None
+        self.win = False
         
     def make_step(self, stones_on_table : int, stones_for_win : int):
         
@@ -14,6 +14,10 @@ class Player:
     def collecting_points(self):
         
         """получение очков за игру"""
+        
+        point = -1 + 2*self.win # если False, то point=-1, иначе +1
+        for step in self.history:
+            self.nums[step] += point
         
         return
     
@@ -33,6 +37,7 @@ class Game:
             for player in self.players:
                 self.stones_on_table = player.make_step(self.stones_on_table,self.STONES_FOR_WIN) 
                 if self.stones_on_table >= self.STONES_FOR_WIN: #если кто то победил, то заканчиваем цикл
+                    player.win = True
                     win = True
                     break
                 
