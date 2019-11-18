@@ -7,9 +7,21 @@ class Player:
         
     def make_step(self, stones_on_table : int, stones_for_win : int):
         
-        """описание логики выбора хода""" 
+        """описание логики выбора хода
+        1.Проверка наличия статистических данных возможного хода
+        2. выбор между двумя вариантами хода"""
         
-        return stones_on_table+1
+        if stones_on_table+1 not in nums: # проверка наличия данных
+            nums[stones_on_table+1] = 0
+        if if stones_on_table*2 not in nums:
+            nums[stones_on_table*2] = 0
+        if nums[stones_on_table+1] > nums[stones_on_table*2]: # выбор хода
+            result = stones_on_table+1
+        else:
+            result = stones_on_table*2
+        self.history.append(result) # запись ходов текущей партии
+        
+        return result
     
     def collecting_points(self):
         
