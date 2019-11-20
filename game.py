@@ -11,15 +11,15 @@ class Player:
         1.Проверка наличия статистических данных возможного хода
         2. выбор между двумя вариантами хода"""
         
-        if stones_on_table+1 not in nums: # проверка наличия данных
+        if stones_on_table+1 not in self.nums: 
             nums[stones_on_table+1] = 0
-        if if stones_on_table*2 not in nums:
+        if stones_on_table*2 not in self.nums:
             nums[stones_on_table*2] = 0
-        if nums[stones_on_table+1] > nums[stones_on_table*2]: # выбор хода
+        if self.nums[stones_on_table+1] > self.nums[stones_on_table*2]: 
             result = stones_on_table+1
         else:
             result = stones_on_table*2
-        self.history.append(result) # запись ходов текущей партии
+        self.history.append(result) 
         
         return result
     
@@ -50,4 +50,4 @@ class Game:
                 
                 
         for player in self.players:
-            player.collecting_points() # раздача очков
+            player.collecting_points() 
