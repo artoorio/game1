@@ -51,7 +51,7 @@ class Game:
     
     def play(self):
         win = False
-        for player in players:
+        for player in self.players:
             player.win = False
         while not win:
             for player in self.players:
@@ -62,4 +62,5 @@ class Game:
                     break
 
     def give_rewards(self):
-        pass
+        for player in self.players:
+            player.collecting_points()
