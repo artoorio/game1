@@ -38,23 +38,28 @@ class Player:
     
     
 class Game:
-    def __init__(self, start: int, players : list): 
-        self.STONES_FOR_WIN = 65 
-        self.players = players # List[player]
-        self.stones_on_table = start # Last step
+    STONES_FOR_WIN = 65
+
+    def __init__(self, players: list):
+        self.stones_on_table = random.randint(1, 23)
+        self.players = players
+        
+
+    def _update_state(self):
+        pass
+    
     
     def play(self):
-        
-        """сначала играем, а потом раздаем очки"""
-        
         win = False
+        for player in players:
+            player.win = False
         while not win:
             for player in self.players:
-                self.stones_on_table = player.make_step(self.stones_on_table) 
-                if self.stones_on_table >= self.STONES_FOR_WIN: #если кто то победил, то заканчиваем цикл
+                self.stones_on_table = player.make_step(self.stones_on_table, self.STONES_FOR_WIN)
+                if self.stones_on_table >= self.STONES_FOR_WIN:
+                    player.win = True
                     win = True
                     break
-                
-                
-        for player in self.players:
-            player.collecting_points() 
+
+    def give_rewards(self):
+        pass
