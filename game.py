@@ -3,7 +3,7 @@ class Player:
         self.nums = {}
         self.answer = None
         self.history = []
-        self.win = False
+        self.win = None
         
     def make_step(self, stones_on_table : int, stones_for_win : int):
         
