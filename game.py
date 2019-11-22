@@ -65,7 +65,7 @@ class Game:
                     player.win = True
                     win = True
                     break
-             self.stones_on_table = random.randint(1, 23)
+        self.stones_on_table = random.randint(1, 23)
                 
     def give_rewards(self):
         for player in self.players:
