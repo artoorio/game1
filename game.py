@@ -55,8 +55,8 @@ class Game:
             player.win = False
         while not win:
             for player in self.players:
-                self.stones_on_table = player.make_step(self.stones_on_table, self.STONES_FOR_WIN)
-                if self.stones_on_table >= self.STONES_FOR_WIN:
+                self.stones_on_table = player.make_step(self.stones_on_table, STONES_FOR_WIN)
+                if self.stones_on_table >= STONES_FOR_WIN:
                     player.win = True
                     win = True
                     break
